@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PharmacieDeLaCharmeuse.Core.Data.Models.CategorieProduit>
+
+@{
+    ViewData["Title"] = "ListCategorieProduit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="Uploader">
+    <div class="container-fluid">
+        <div class="container heading">
+            <h4>Creer</h4>
+        </div>
+        <div class="divider"></div>
+    </div>
+
+    <h4 class="my-4">
+        <small>Liste des Categories</small>
+    </h4>
+
+    <p>
+        <a class="btn btn-outline-success" asp-controller="CategorieProduit" asp-action="CreerCategorie">Creer</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomCategorieProduit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescriptionCategorieProduit)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var CategorieProduit in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => CategorieProduit.NomCategorieProduit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => CategorieProduit.DescriptionCategorieProduit)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@CategorieProduit.CategorieProduitID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@CategorieProduit.CategorieProduitID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@CategorieProduit.CategorieProduitID"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

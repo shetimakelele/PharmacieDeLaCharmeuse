@@ -1,0 +1,53 @@
+﻿@model PharmacieDeLaCharmeuse.Core.Data.Models.ImageModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="container">
+        <!-- Details Item Heading -->
+        <h1 class="my-4">
+            <small>Modification de l'image</small>
+        </h1>
+        <hr />
+    </div>
+
+<div>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TitreImage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TitreImage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NomImage)
+        </dt>
+        <dd class="col-sm-10">
+            photo
+        </dd>
+        <dd class="col-sm-10">
+            <img src="@("~/image/"+ Model.NomImage)" asp-append-version="true" width="250px" height="250px"/>
+        </dd>
+    </dl>
+</div>
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <img src="@("~/image/"+ Model.NomImage)" asp-append-version="true" width="250px" height="250px" />
+        <div class="row">
+            <div class="col-md-6"><p class="card-text"> @Html.DisplayFor(model => model.TitreImage)</p></div>
+            <div class="col-md-6"><p class="card-text"> @Html.DisplayFor(model => model.NomImage)</p></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ImageId">Editer</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

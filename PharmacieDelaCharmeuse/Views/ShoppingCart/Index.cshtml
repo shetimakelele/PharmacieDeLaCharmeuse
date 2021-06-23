@@ -1,0 +1,50 @@
+﻿@model PharmacieDeLaCharmeuse.Core.Data.ViewModels.ShoppingCartViewModel
+
+<section id="horaires">
+    <div class="container-fluid">
+        <div class="container heading">
+            <h4>Votre Panier </h4>
+        </div>
+        <div class="divider"></div>
+
+        <table class="table">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th class="text-left">Nombre</th>
+                    <th class="text-left">Article</th>
+                    <th class="text-left">Prix</th>
+                    <th class="text-right">Sous-total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+                {
+                    <tr>
+                        <td class="text-left">@item.Amount</td>
+                        <td class="text-left">@item.Produit.Nom</td>
+                        <td class="text-left">@item.Produit.Prix.ToString("c")</td>
+                        <td class="text-right">
+                            @((item.Amount*item.Produit.Prix).ToString("c"))
+                        </td>
+                        <td>
+                             <!--supprimer une ligne de commande-->
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">Total :</td>
+                    <td class="text-right">
+                        @Model.shoppingCartTotal.ToString("c")
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="text-right">
+        <a class="btn btn-outline-success btn-sm"  asp-controller="Commande" asp-action="CreateCommande">Commander</a>
+    </div>
+</section>

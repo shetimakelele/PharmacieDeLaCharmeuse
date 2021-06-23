@@ -1,0 +1,44 @@
+﻿@model IEnumerable<PharmacieDeLaCharmeuse.Core.Data.Models.TestProduit>
+@{
+    ViewData["Title"] = "ListTestProduit";
+}
+
+
+<section class="VueProduit">
+    <div class="container heading">
+        <h4>Nos Test</h4>
+    </div>
+    <div class="divider"></div>
+    <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Recherche" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <hr />
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-md-2">
+            @foreach (var item in Model)
+            {
+                <div class="col mb-4">
+                    <div class="card">
+                        <img src="@item.TestImageUrl" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Titre</h5>
+                            <p class="card-text">@item.DescriptionCourte</p>
+                            <h6>Note : @item.NoteTest / 10</h6>
+                        </div>
+                        <div class="card-footer">
+                            <a asp-controller="TestProduit" asp-action="Details" asp-route-TestProduitId="@item.TestProduitId" class="btn btn-outline-success btn-sm"><i class="far fa-plus-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+    </div>
+
+
+</section>
+
+

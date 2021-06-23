@@ -1,0 +1,57 @@
+﻿@model PharmacieDeLaCharmeuse.Core.Data.ViewModels.ProduitDuMoisViewModel
+
+
+@{
+    ViewData["Title"] = "Accueil";
+}
+
+
+<div class="container-fluid">
+    @await Html.PartialAsync("_CarouselProduit")
+</div>
+
+
+<section class="VueProduit">
+    <div class="container heading">
+        <h4>Produits du mois</h4>
+    </div>
+    <div class="divider"></div>
+    <div class="container">
+        <div class="row">
+            @foreach (var produit in Model.ProduitDuMois)
+            {
+                await Html.RenderPartialAsync("_ProduitSummary", produit);
+            }
+        </div>
+    </div>
+</section>
+<section id="horaires">
+    <div class="container heading">
+        <h4>Horaires </h4>
+    </div>
+    <div class="divider"></div>
+    <div class="container ">
+        <div class="row">
+            <div class="col-sm-4">
+               
+            </div>
+            <div class="col-sm-4">
+                <div class="container-fluid ">
+
+                    <div class="card text-center" style="width: 18rem;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-white bg-success">Lundi-Vendredi</li>
+                            <li class="list-group-item">8:00 - 13:30 15:00 - 19:00</li>
+                            <li class="list-group-item  border-success">Samedi</li>
+                            <li class="list-group-item">8:00 - 13:30 15:00 - 18:30</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                
+            </div>
+        </div>
+    </div>
+
+</section>

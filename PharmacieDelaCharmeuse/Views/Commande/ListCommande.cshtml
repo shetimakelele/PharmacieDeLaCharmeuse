@@ -1,0 +1,98 @@
+﻿@model IEnumerable<PharmacieDeLaCharmeuse.Core.Data.Models.Commande>
+
+@{
+    ViewData["Title"] = "ListCommande";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="VueProduit">
+    <div class="container heading">
+        <h4>Liste des commandes</h4>
+    </div>
+</section>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prenom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adresse1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adresse2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodePostal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ville)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pays)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telephone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommandeTotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateCommande)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adresse1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adresse2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodePostal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ville)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pays)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telephone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommandeTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateCommande)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.CommandeId">Editer</a> |
+                        <a asp-action="Details" asp-route-id="@item.CommandeId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.CommandeId">Supprimer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

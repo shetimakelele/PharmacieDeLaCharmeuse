@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PharmacieDeLaCharmeuse.Core.Data.Models.Produit>
+@{
+    ViewData["Title"] = "ListProduit";
+}
+
+
+<section class="VueProduit">
+
+    <div class="container heading">
+        <h4>Nos Gammes</h4>
+    </div>
+    <div class="divider"></div>
+    <!--
+    <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Recherche" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+        -->
+    <div class="row">
+        <div class="col-md-3">
+            <h4 class="text-center">Categories</h4>
+            <ul class="list-group">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+
+
+            <div class="container">
+
+                <div class="row row-cols-1 row-cols-md-3">
+                    @foreach (var produit in Model)
+                    {
+
+                        await Html.RenderPartialAsync("_ProduitSummary", produit);
+
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

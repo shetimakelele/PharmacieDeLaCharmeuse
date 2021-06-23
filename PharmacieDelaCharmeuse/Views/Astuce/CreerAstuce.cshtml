@@ -1,0 +1,51 @@
+﻿@model PharmacieDeLaCharmeuse.Core.Data.Models.Astuce
+
+@{
+    ViewData["Title"] = "CreerAstuce";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <section id="creerAstuce">
+        <div class="container-fluid">
+            <div class="container heading">
+                <h4>Creer une astuce</h4>
+            </div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <form asp-action="CreerAstuce" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="DateEdition" class="control-label">Date</label>
+                        <input asp-for="DateEdition" class="form-control" />
+                        <span asp-validation-for="DateEdition" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Titre" class="control-label"> Titre</label>
+                        <input asp-for="Titre" class="form-control" />
+                        <span asp-validation-for="Titre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DescriptionCourte" class="control-label"> Description courte</label>
+                        <input asp-for="DescriptionCourte" class="form-control" />
+                        <span asp-validation-for="DescriptionCourte" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"> Description longue</label>
+                        <textarea asp-for="Description" class="form-control" cols="80" rows="10"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Creer" class="btn btn-outline-success" />
+                    </div>
+
+                </form>
+                <div>
+                    <a class="btn btn-outline-dark" asp-action="CreerAstuce">Nouvel Astuce</a>
+                </div>
+            </div>
+        </div>
+    </section>

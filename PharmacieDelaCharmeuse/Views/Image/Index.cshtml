@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PharmacieDeLaCharmeuse.Core.Data.Models.ImageModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    
+    <h4 class="my-4">
+        <small>Uploader une nouvelle image</small>
+    </h4>
+
+</div>
+
+<p>
+    <a class="btn btn-outline-success" asp-controller="Image" asp-action="Upload">Uploader une nouvelle image</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TitreImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomImage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitreImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomImage)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ImageId">Editer</a> |
+                    <a asp-action="Details" asp-route-id="@item.ImageId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ImageId"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

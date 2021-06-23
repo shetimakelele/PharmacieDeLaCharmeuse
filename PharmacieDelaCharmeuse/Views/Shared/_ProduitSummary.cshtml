@@ -1,0 +1,36 @@
+﻿@model PharmacieDeLaCharmeuse.Core.Data.Models.Produit
+
+
+<div class="col-sm-4 col-lg-4 col-md-4 mt-5">
+    <div >
+        <div class="view overlay">
+            <img src="@Model.ImageUrL" alt="" class=" img-fluid" />
+        </div>
+        
+
+        <div class="figure-caption">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <h4>@Model.Nom</h4>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <h4 class="text-right">@Model.Prix.ToString("c")</h4>
+                </div>
+            </div>
+            
+            <hr />
+            <p>@Model.DescriptionCourte.</p>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <a asp-controller="Produit" asp-action="Details" asp-route-ProduitId="@Model.ProduitId" class="btn btn-outline-success btn-sm">Details</a>
+                </div>
+                <div class="col-md-6 col-sm-6 text-right">
+                    
+                    <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-ProduitId="@Model.ProduitId" class="btn btn-outline-success btn-sm"> panier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 

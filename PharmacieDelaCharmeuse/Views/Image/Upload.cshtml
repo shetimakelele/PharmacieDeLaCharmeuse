@@ -1,0 +1,36 @@
+﻿@model PharmacieDeLaCharmeuse.Core.Data.Models.ImageModel
+@{
+    ViewData["Title"] = "Upload";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <section id="Uploader">
+        <div class="container-fluid">
+            <div class="container heading">
+                <h4>Charger vos fichiers image</h4>
+            </div>
+            <div class="divider"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <form asp-action="Upload" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="TitreImage" class="control-label"> Titre</label>
+                        <input asp-for="TitreImage" class="form-control" />
+                        <span asp-validation-for="TitreImage" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ImageFile" class="control-label">Charger une image</label>
+                        <input asp-for="ImageFile" accept="image/*" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Creer" class="btn btn-outline-success" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>

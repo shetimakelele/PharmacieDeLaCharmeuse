@@ -1,0 +1,100 @@
+﻿@model PharmacieDeLaCharmeuse.Core.Data.Models.Contact
+@{
+    ViewData["Title"] = "Contact";
+}
+<section id="team">
+    <!-- Header -->
+    <div class="container-fluid">
+        <div class="container heading">
+            <h4>Equipe</h4>
+        </div>
+        <div class="divider"></div>
+    </div>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Team Member 1 -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-0 shadow">
+                    <img src="https://source.unsplash.com/TMgQMXoglsM/500x350" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-0">Nom du Membre</h5>
+                        <div class="card-text text-black-50">titre ou Fonction</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-0 shadow">
+                    <img src="https://source.unsplash.com/9UVmlIb0wJU/500x350" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-0">Nom du Membre</h5>
+                        <div class="card-text text-black-50">titre ou Fonction</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-0 shadow">
+                    <img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-0">Nom du Membre</h5>
+                        <div class="card-text text-black-50">titre ou Fonction</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 4 -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-0 shadow">
+                    <img src="https://source.unsplash.com/ZI6p3i9SbVU/500x350" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-0">Nom du Membre</h5>
+                        <div class="card-text text-black-50">Fonction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+</section>
+
+<section id="Contact">
+    <div class="container">
+        <div class="container heading">
+            <h4>Contactez nous</h4>
+        </div>
+        <div class="divider"></div>
+        <div id="contact-form row">
+            <form asp-controller="Home" asp-action="Contact" asp-anti-forgery="true" method="post">
+                <div class="form-group">
+                    <div class="col-md-12 form-group">
+                        <input asp-for="Name" class="form-control" placeholder="Nom" />
+                        <span asp-validation-for="Name" style="color: red"></span>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <input asp-for="Email" class="form-control" placeholder="Email" />
+                        <span asp-validation-for="Email" style="color: red"></span>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <input asp-for="Subject" class="form-control" placeholder="Objet" />
+                        <span asp-validation-for="Subject" style="color: red"></span>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <textarea asp-for="Message" class="message form-control" placeholder="Votre message..."></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-outline-success" type="submit" id="submit">Envoyer</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+    @section Scripts {
+        @Html.Partial("_ValidationScriptsPartial")
+    }
+
+ 

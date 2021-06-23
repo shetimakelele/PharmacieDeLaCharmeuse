@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PharmacieDeLaCharmeuse.Core.Data.Models.Astuce>
+
+@{
+    ViewData["Title"] = "ListAstuce";
+}
+
+<section id="horaires">
+    <div class="container heading">
+        <h4>Nos astuces </h4>
+    </div>
+    <div class="divider"></div>
+    <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Recherche" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <hr />
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2">
+
+            @foreach (var item in Model)
+            {
+
+                <div class="col mb-4">
+                    <div class="card">
+                        <img src="@item.AstuceImageUrl" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Titre</h5>
+                            <p class="card-text">@item.DescriptionCourte</p>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <a asp-controller="Astuce" asp-action="Details" asp-route-AstuceId="@item.AstuceId" class="btn btn-outline-success btn-sm"><i class="far fa-plus-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</section>
+
